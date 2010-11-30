@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Contact">
+	
+	<resultMap id="result" type="Contact">
+	    <result property="id" column="CONTACT_ID"/>
+	    <result property="name" column="CONTACT_NAME"/>
+	    <result property="phone" column="CONTACT_PHONE"/>
+	    <result property="email" column="CONTACT_EMAIL"/>
+    </resultMap>
+	
+    <select id="getAll" resultMap="result">
+    	SELECT * FROM CONTACT 
+    </select>
+    
+    <select id="getById" parameterType="int" resultMap="result">
+    	SELECT * FROM CONTACT WHERE CONTACT_ID = #{id}
+  	</select>
+    
+    <delete id="deleteById" parameterType="int">
+    	DELETE from CONTACT WHERE CONTACT_ID = #{id};
+    </delete>
+
+    <insert id="insert" parameterType="Contact">
+    INSERT INTO CONTACT (CONTACT_EMAIL, CONTACT_NAME, CONTACT_PHONE) 
+		VALUES (#{name}, #{phone}, #{email});
+      <selectKey keyProperty="id" resultType="int" order="AFTER">
+		select last_insert_id() as id
+	  </selectKey>
+    </insert>
+
+	<update id="update" parameterType="Contact">
+	  	UPDATE CONTACT
+		SET
+			CONTACT_EMAIL = #{email},
+			CONTACT_NAME = #{name},
+			CONTACT_PHONE = #{phone}
+		WHERE CONTACT_ID = #{id};
+  </update>
+
+</mapper>
