@@ -1,6 +1,5 @@
 package com.loiane.test;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.loiane.dao.ContactDAO;
@@ -48,7 +47,7 @@ public class Test {
 			//delete
 			//contactDAO.delete(1);
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
