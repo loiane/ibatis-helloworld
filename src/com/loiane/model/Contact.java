@@ -14,6 +14,18 @@ public class Contact {
 	private String phone;
 	private String email;
 	
+	
+	public Contact(int id, String name, String phone, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+	}
+	
+	public Contact() {}
+
+
 	public int getId() {
 		return id;
 	}
@@ -53,5 +65,22 @@ public class Contact {
 		sb.append("Phone = ").append(phone).append(" - ");
 		sb.append("Email = ").append(email);
 		return sb.toString();
+	}
+	
+	public boolean equals(Object obj) {  
+		Contact contact = (Contact) obj;
+		if (this.id != contact.id){
+			return false;
+		}
+		if (!this.name.equals(contact.getName())){
+			return false;
+		}
+		if (!this.phone.equals(contact.getPhone())){
+			return false;
+		}
+		if (!this.email.equals(contact.getEmail())){
+			return false;
+		}
+		return true;
 	}
 }
