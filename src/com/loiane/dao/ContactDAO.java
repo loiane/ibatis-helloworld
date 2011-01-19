@@ -15,6 +15,13 @@ import com.loiane.model.Contact;
  * http://loiane.com (Portuguese)
  */
 public class ContactDAO {
+	
+	private SqlSessionFactory sqlSessionFactory; 
+	
+	public ContactDAO(){
+		sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
+	}
+	
 
 	/**
 	 * Returns the list of all Contact instances from the database.
@@ -23,7 +30,6 @@ public class ContactDAO {
 	@SuppressWarnings("unchecked")
 	public List<Contact> selectAll(){
 
-		SqlSessionFactory sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
@@ -41,7 +47,6 @@ public class ContactDAO {
 	 */
 	public Contact selectById(int id){
 
-		SqlSessionFactory sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
@@ -58,7 +63,6 @@ public class ContactDAO {
 	 */
 	public void update(Contact contact){
 
-		SqlSessionFactory sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
@@ -75,7 +79,6 @@ public class ContactDAO {
 	 */
 	public void insert(Contact contact){
 
-		SqlSessionFactory sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
@@ -92,7 +95,6 @@ public class ContactDAO {
 	 */
 	public void delete(int id){
 
-		SqlSessionFactory sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
