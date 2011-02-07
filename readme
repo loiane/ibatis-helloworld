@@ -1,8 +1,20 @@
 MyBatis/iBatis Hello World application.
 
-To run the tests, just run the class com.loiane.test.Test
+This sample app demonstrates hpw to setup iBatis/MyBatis and simple insert, update, select and delete statements.
+
+To run the tests, just run the class inside the com.loiane.test.* package (JUnit)
 
 All libs/jars included.
+
+Please run the scrip inside sql/script.sql
+
+Tools used to implement this project:
+Eclipse IDE - Java project
+MySQL
+
+Post URL explaning this project step-by-step:
+Enhlish: coming soon
+Portuguese-Brazil: em breve
 
 Loiane Groner
 http://loianegroner.com (English)
